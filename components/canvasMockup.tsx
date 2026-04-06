@@ -1,4 +1,5 @@
 import React, { type CSSProperties } from 'react';
+import Image from 'next/image';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -336,7 +337,15 @@ const CanvasMockupHero: React.FC<CanvasMockupHeroProps> = ({
                     <div style={{ background: 'white', borderRadius: 40, padding: '5px 10px 5px 6px', border: '1px solid rgba(180,178,169,0.3)', display: 'flex', alignItems: 'center', gap: 4, boxShadow: '0 2px 8px rgba(60,55,45,0.08)' }}>
                         <div style={{ display: 'flex' }}>
                             {collaborators.map((c, i) => (
-                                <img key={i} src={c.avatarUrl} alt={c.name} style={{ width: 30, height: 30, borderRadius: '50%', border: '2px solid white', marginLeft: i === 0 ? 0 : -8, objectFit: 'cover' }} />
+                                <Image
+                                    key={i}
+                                    src={c.avatarUrl}
+                                    alt={c.name}
+                                    width={30}
+                                    height={30}
+                                    unoptimized
+                                    style={{ borderRadius: '50%', border: '2px solid white', marginLeft: i === 0 ? 0 : -8, objectFit: 'cover' }}
+                                />
                             ))}
                             {extraCollaborators > 0 && (
                                 <div style={{ width: 30, height: 30, borderRadius: '50%', background: '#f1efe8', border: '2px solid white', marginLeft: -8, fontSize: 10, fontWeight: 600, color: '#5f5e5a', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -443,7 +452,13 @@ const CanvasMockupHero: React.FC<CanvasMockupHeroProps> = ({
                     transform: 'rotate(2.5deg)', zIndex: 15, overflow: 'hidden',
                 }}>
                     <div style={{ borderRadius: 10, overflow: 'hidden', position: 'relative', width: '100%', height: '100%' }}>
-                        <img src={photoCard.src} alt={photoCard.caption} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                        <Image
+                            src={photoCard.src}
+                            alt={photoCard.caption}
+                            fill
+                            unoptimized
+                            style={{ objectFit: 'cover', display: 'block' }}
+                        />
                         <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(to top, rgba(44,44,42,0.6), transparent)', padding: '12px 8px 6px', fontSize: 10, color: 'white', fontWeight: 500 }}>
                             {photoCard.caption}
                         </div>

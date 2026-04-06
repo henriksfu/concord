@@ -318,6 +318,9 @@ export function useRealtimeCollab(roomId: string, user: UserIdentity) {
 
     connect();
 
+    const cleanupPeerConnections = peerConnectionsRef.current;
+    const cleanupUsers = usersRef.current;
+
     return () => {
       closedByClientRef.current = true;
       if (reconnectTimerRef.current) {
@@ -326,11 +329,11 @@ export function useRealtimeCollab(roomId: string, user: UserIdentity) {
       const ws = wsRef.current;
       ws?.close();
       wsRef.current = null;
-      for (const connection of peerConnectionsRef.current.values()) {
+      for (const connection of cleanupPeerConnections.values()) {
         connection.close();
       }
-      peerConnectionsRef.current.clear();
-      usersRef.current.clear();
+      cleanupPeerConnections.clear();
+      cleanupUsers.clear();
       setRemoteStreams([]);
       setOnlineUsers([]);
     };
