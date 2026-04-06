@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+::selection {
+  background: #A3B18A;
+  color: #fff;
+}
+
+/* An abstract subtle gradient map for text to give headings a slight organic feel */
+.text-gradient {
+  background: linear-gradient(120deg, #1E1E1E 0%, #4A4A4A 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,9 @@
+export const BOARD_SIZE = 6000;
+export const BOARD_HALF = BOARD_SIZE / 2;
+export const MIN_ZOOM = 0.45;
+export const MAX_ZOOM = 1.8;
+export const DEFAULT_STROKE_COLOR = '#181614';
+export const DEFAULT_STROKE_WIDTH = 4;
+export const STROKE_COLORS = ['#181614', '#bf5b39', '#1f5c4f', '#255b8f', '#874c62'];
+export const STROKE_WIDTHS = [2, 4, 8, 14];
+export const ROOM_ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+){1,5}$/;
